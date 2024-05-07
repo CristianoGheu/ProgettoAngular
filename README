@@ -1,0 +1,18 @@
+Per il progetto ho dovuto creare un sito che ho chiamato NaturalSocial dove è possibile accedere con un token,
+una volta fatto l'accesso si viene reindirizzati nella pagina principale dove c'è la lista degli utenti dove e possibile crearne di nuovi,
+c'è anche una pagina della lista dei post dei vari utenti dove e possibile creare dei nuovi post.
+In tutte e due queste pagine è possibile cercare con una barra di ricerca gli utenti e i post.
+
+Nella pagina degli utenti e possibile visionare i loro dati, post e i commenti dei loro post, 
+è possibile modificare gli utenti e anche eliminare l’utente. 
+
+Nella pagina dei post è possibile visionare i commenti e crearne di nuovi.
+
+Il progetto l’ho sviluppato con il framework Angular, ho usato Angular Material per modellare i vari componenti.
+
+Per il testing ho utilizzato Karma e i test sono scritti con il framework di testing Jasmine.
+Per far partire il test si può utilizzare nel terminale del progetto il comando ng test.
+
+Per provare e testare l’applicazione potete scaricare il  zip ed estrarlo, 
+una volta aperto il progetto si deve navigare della directory e installare le dipendenze con npm install.
+Una volta installato le dipendenze di può avviare il server con il comando ng serve.
