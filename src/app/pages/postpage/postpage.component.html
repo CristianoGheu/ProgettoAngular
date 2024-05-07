@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="post-container">
+    <div class="search-bar">
+        <input matInput #searchBox type="text" id="search" placeholder="Search Post"
+        (input)="getPost('1', pageSize, searchBox.value)"/>
+        <button mat-button routerLink="/newPost">
+            <mat-icon>post_add</mat-icon>
+        </button>
+    </div>
+    <div class="post-container" *ngFor="let post of posts">
+        <mat-card class="post-card">
+            <mat-card-header class="post-header">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.body }}</p>
+            </mat-card-header>
+            <span class="comment" routerLink="/post/{{post.id}}">
+                See comments
+            </span>
+        </mat-card>
+    </div>
+
+    <h1 *ngIf="posts.length == 0" class="no-post">There is no post found</h1>
+
+    <div>
+        <mat-paginator [length]="pageTotal" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page" style="background-color: transparent;"></mat-paginator>
+    </div>
+</div>

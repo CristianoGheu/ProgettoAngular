@@ -1,0 +1,42 @@
+<div class="auth-container">
+    <mat-card class="card">
+        <mat-card-header style="display: flex; flex-direction: column;">
+            <h1>Welcome!</h1>
+            <p class="info">Register and join this community</p>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form #newUserForm="ngForm" (ngSubmit)="login()" id="login">
+                    <label class="label" for="name">Name</label>
+                    <input class="form-content" matInput 
+                    id="name" name="name" #name="ngModel" [(ngModel)]="newCurrentUser.name" placeholder="name" type="text" required minlength="8">
+                    <div *ngIf="name.invalid && name.dirty"><mat-error style="color: red;">Name is required, at least 8 characters</mat-error></div>
+                    
+                    <label class="label" for="email">Email</label>
+                    <input class="form-content" matInput 
+                    id="email" #email="ngModel" name="email" [(ngModel)]="newCurrentUser.email" placeholder="email" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9-.]+\.[a-z]{2,}"/>
+                    <div *ngIf="email.invalid && email.dirty"><mat-error style="color: red;">Invalid email</mat-error></div>
+                
+                    <label class="label" for="gender">Gender</label>
+                        <select class="form-content" matInput id="gender" #gender="ngModel"
+                        name="gender" required [(ngModel)]="newCurrentUser.gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                     
+                      <label class="label" for="token">Token</label>
+                    <input class="form-content" matInput 
+                    id="token" #token="ngModel" name="token" [(ngModel)]="tokenKey" placeholder="Access token" type="text" required minlength="64" maxlength="64">
+                    <div *ngIf="token.invalid && token.dirty"><mat-error style="color: red;">Token is required</mat-error></div>
+                    <button mat-button class="login-button" type="submit" [disabled]="!newUserForm.form.valid">Enter</button>
+                </form>
+                
+            <div class="info-box">
+                <p class="info">Don't have a Token? Get your token here!</p>
+                <button mat-raised-button >
+                    <a href="https://gorest.co.in/consumer/login" target="_blank">HERE!</a>
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

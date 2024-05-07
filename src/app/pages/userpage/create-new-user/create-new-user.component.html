@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="newuser-container">
+    <h1>Create new user</h1>
+    <mat-card class="card">
+        <mat-card-content>
+    <form #newUserForm="ngForm" (ngSubmit)="createNewUser()">
+        <mat-form-field class="form-content">
+            <mat-label for="name">Name</mat-label>
+            <input matInput #name="ngModel" id="name" name="name" [(ngModel)]="newUser.name" placeholder="name" type="text"
+            required>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                <mat-error style="color: red; font-size: 12px">Name is required</mat-error></div>
+        </mat-form-field>
+        <mat-form-field class="form-content">
+            <mat-label for="email">Email</mat-label>
+            <input matInput #email="ngModel" name="email" [(ngModel)]="newUser.email" placeholder="email" type="email"
+            required id="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9-.]+\.[a-z]{2,}"/>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <mat-error style="color: red; font-size: 12px">Email is required</mat-error></div>
+        </mat-form-field>
+        <mat-form-field class="form-content">
+            <mat-label for="gender">Gender</mat-label>
+            <mat-select [(ngModel)]="selectedGenderValue" id="gender" name="gender" id="gender" [(ngModel)]="newUser.gender" required>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-card-actions>
+            <button mat-button type="submit" [disabled]="!newUserForm.touched && !newUserForm.form.valid">Confirm</button>
+        </mat-card-actions>
+    </form>
+    </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="user-container">
+    <div class="detail-user" *ngIf="selectedUser && !openDelete && !openEdit">
+        <h1>User {{ selectedUser.id }} detail</h1>
+        <p>{{ selectedUser.name }}</p>
+        <p>{{ selectedUser.email }}</p>
+        <p>{{ selectedUser.gender }}</p>
+        <p>{{ selectedUser.status }}</p>
+    <div class="buttonsUser">
+        <button mat-button (click)="openDelete = true">Delete</button>
+        <button mat-button (click)="userEditClick()">Edit</button>
+    </div>
+    </div>
+
+    <div class="pop-up-delete" *ngIf="openDelete">
+        <h1>Are you sure you want to delete this user?</h1>
+    <div class="buttonsDelete">
+        <button mat-button (click)="deleteUser()">Yes</button>
+        <button mat-button (click)="openDelete = false">No</button>
+    </div>
+    </div>
+
+    <div *ngIf="openEdit">
+        <mat-card class="card">
+        <mat-card-content>
+    <form class="form" action="" #editUserForm="ngForm" (ngSubmit)="editUser()">
+        <mat-form-field class="form-content">
+        <mat-label for="name">Name</mat-label>
+        <input matInput type="text" name="name" id="name"  #name="ngModel" placeholder="name" [(ngModel)]="userEdit.name" required>
+    </mat-form-field>
+        <mat-form-field class="form-content">
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="email" name="email" id="email" #email="ngModel" placeholder="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9-.]+\.[a-z]{2,}" [(ngModel)]="userEdit.email" required
+        />
+    </mat-form-field>
+        <mat-form-field class="form-content">
+        <mat-label for="gender">Gender</mat-label>
+        <mat-select [(ngModel)]="selectedGenderValue" name="gender" id="gender" [(ngModel)]="userEdit.gender" required>
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-content">
+        <mat-label for="status">Status</mat-label>
+        <mat-select name="status" id="status" [(ngModel)]="selectedStatusValue" [(ngModel)]="userEdit.status" required>
+        <mat-option value="active">Active</mat-option>
+        <mat-option value="inactive">Inactive</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-card-actions>
+            <button mat-button type="submit" [disabled]="!editUserForm.touched && editUserForm.form.valid">Confirm</button>
+            <button mat-button (click)="goBack()">Back</button>
+    </mat-card-actions>
+    </form>
+    </mat-card-content>
+</mat-card>
+    </div>
+
+    <div *ngIf="!openDelete && !openEdit && selectedUser">
+        <span class="see-post"> Posts:
+        </span>
+        <div class="post-container" *ngFor="let post of posts">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
+        <span class="comment" routerLink="/post/{{post.id}}">
+            See comments
+        </span>    
+    </div>
+    <h2 *ngIf="posts.length == 0" style="display: flex; justify-content: center">
+        There is no posts yet</h2>
+    </div>
+
+</div>

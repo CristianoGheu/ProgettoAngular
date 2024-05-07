@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="newpost-container">
+    <h1>Create new post</h1>
+    <form class="form" #newPostForm="ngForm" (ngSubmit)="NewPost()">
+    <mat-form-field class="form-content">
+        <mat-label for="title">Title</mat-label>
+        <input matInput #title="ngModel" name="title" [(ngModel)]="newPost.title" placeholder="title" type="text" required
+        minlength="10">
+        <div *ngIf="title.invalid && title.dirty">
+            <mat-error>Title is required, at least 10 characters</mat-error>
+        </div>
+        </mat-form-field>
+        <mat-form-field class="form-content">
+        <mat-label for="body">Body</mat-label> 
+        <textarea matInput #body="ngModel" name="body" [(ngModel)]="newPost.body" placeholder="body" type="text" cols="30" rows="10"
+        minlength="10" required>
+        </textarea>
+        <div *ngIf="body.invalid && body.dirty">
+            <mat-error>Body is required, at least 10 characters</mat-error>
+        </div>
+    </mat-form-field>
+    <button mat-button type="submit" [disabled]="!newPostForm.touched && !newPostForm.form.valid">Confirm</button>
+    </form>
+</div>

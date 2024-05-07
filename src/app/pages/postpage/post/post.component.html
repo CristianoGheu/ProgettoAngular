@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="post-container">
+        <mat-card class="post-card">
+            <mat-card-header class="post-header">
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.body }}</p>
+            </mat-card-header>
+            <span>Comment:</span>
+            <mat-card-content class="comment-container" *ngFor="let comment of comments">
+                <h2>{{ comment.name }}</h2>
+                <p>{{ comment.body }}</p>
+            </mat-card-content>
+        </mat-card>
+        <div class="comment-form">
+                <p *ngIf="comments.length == 0" class="no-comment">There is no comments yet</p>
+                <mat-card-actions>
+                    <button mat-button (click)="addComment = !addComment">Add comment</button>
+                    <form *ngIf="addComment" (ngSubmit)="addNewComment()" #newCommentForm="ngForm">
+                            <textarea matInput name="comment" #comment="ngModel" [(ngModel)]="newComment.body" minlength="10" required></textarea>
+                            <div *ngIf="comment.invalid && comment.dirty">
+                                <mat-error style="color: red;">The comment must have at least 10 characters</mat-error></div>
+                            <button mat-button type="submit" [disabled]="!newCommentForm.form.valid">Add</button>
+                    </form>
+                </mat-card-actions>
+            </div>
+</div>
