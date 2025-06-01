@@ -1,17 +1,38 @@
-Per il progetto ho dovuto creare un sito che ho chiamato NaturalSocial dove è possibile accedere con un token,
-una volta fatto l'accesso si viene reindirizzati nella pagina principale dove c'è la lista degli utenti dove e possibile crearne di nuovi,
-c'è anche una pagina della lista dei post dei vari utenti dove e possibile creare dei nuovi post.
-In tutte e due queste pagine è possibile cercare con una barra di ricerca gli utenti e i post.
+Per il progetto ho creato un sito che ho chiamato NaturalSocial che ha come obiettivo quello di migliorare la vita delle persone nei centri urbani,Add commentMore actions
+perché le città  siano sempre più centri per nuove idee, per il commercio, la cultura, la scienza, la produttività, lo sviluppo sociale.
+Il sito permette alle persone di registrarsi e condividere tramite post le proprie idee e segnalazioni, per contribuire soprattutto a:
 
+-Proteggere e salvaguardare il patrimonio culturale della città
+-Proteggere e salvaguardare il patrimonio naturale della città
+-Supportare i legami positivi, sociali e ambientali, tra aree urbane
+
+Si puo accedere tramite un token, una volta fatto l'accesso si viene reindirizzati nella pagina principale dove e presente la lista degli utenti, ed e possibile crearne di nuovi,
+c'è anche una pagina dei post dei vari utenti in cui e possibile anche creare dei nuovi post.
+In queste due pagine è possibile cercare con una barra di ricerca gli utenti e i post.
 Nella pagina degli utenti e possibile visionare i loro dati, post e i commenti dei loro post, 
-è possibile modificare gli utenti e anche eliminare l’utente. 
-
+ed e possibile modificare gli utenti e anche eliminarlo. 
 Nella pagina dei post è possibile visionare i commenti e crearne di nuovi.
+Ho scelto anche di mettere una barra con il titolo e due pulsanti uno che porta alla pagina dei post, e uno per il Logout.
+Ho inserito anche un footer con due link uno che porta al GitHub del progetto e un link del mio LinkedIn.
 
-Il progetto l’ho sviluppato con il framework Angular, ho usato Angular Material per modellare i vari componenti.
+I dati degli utenti e dei post gli ho ricevuti dalle API di GoRest - https://gorest.co.in/
+
+Per rendere ben leggibile e modificabile in futuro, ho scelto di suddividere il progetto in diverse cartelle in base al tipo di componente:
+LoginPages = ho inserito i due componenti della parte i registrazione e autenticazione
+Components = per i component footer e header, dove ho creato il footer con due link e la barra di navigazione.
+Styles = qui ho inserito lo styling di componenti comuni tra le varie pagine, ho fatto ciò per rendere più pulito il tutto e rendere più semplice in futuro la possibili di apportare modifiche.
+Pages= ho inserito le cartelle dei seguenti componenti:
+Home = per il component home, dove ho scelto di mettere la liste degli utenti, con la barra di ricerca e il pulsante per andare a creare un nuovo utente.
+Postpage = per i vari componenti per i post, uno per la pagina con tutti i post, uno per la pagina del singolo post, e il component per creare un post nuovo.
+Userpage = per i vari componenti per gli utenti, uno per la pagina del singolo utente dove ci sono i suoi post e ce la possibilita di modificare i suoi dati o di eliminare l'utente,
+e un componente per la creazione di un nuovo utente.
+
+Il progetto l’ho sviluppato con il framework Angular, ho usato Angular Material per modellare i vari componenti, e per la parte estetica ho scelto di utilizzare css,
+ottimizzando il sito anche per la la visualizzazione su mobile.
 
 Per il testing ho utilizzato Karma e i test sono scritti con il framework di testing Jasmine.
 Per far partire il test si può utilizzare nel terminale del progetto il comando ng test.
+
 
 Per provare e testare l’applicazione potete scaricare il  zip ed estrarlo, 
 una volta aperto il progetto si deve navigare della directory e installare le dipendenze con npm install.
