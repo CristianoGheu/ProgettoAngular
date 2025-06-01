@@ -13,7 +13,6 @@ Nella pagina degli utenti e possibile visionare i loro dati, post e i commenti d
 ed e possibile modificare gli utenti e anche eliminarlo. 
 Nella pagina dei post è possibile visionare i commenti e crearne di nuovi.
 Ho scelto anche di mettere una barra con il titolo e due pulsanti uno che porta alla pagina dei post, e uno per il Logout.
-Ho inserito anche un footer con due link uno che porta al GitHub del progetto e un link del mio LinkedIn.
 
 I dati degli utenti e dei post gli ho ricevuti dalle API di GoRest - https://gorest.co.in/
 
