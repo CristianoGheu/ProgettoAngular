@@ -21,6 +21,7 @@ Per rendere ben leggibile e modificabile in futuro, ho scelto di suddividere il 
 LoginPages = ho inserito i due componenti della parte i registrazione e autenticazione
 Components = per i component footer e header, dove ho creato il footer con due link e la barra di navigazione.
 Styles = qui ho inserito lo styling di componenti comuni tra le varie pagine, ho fatto ciò per rendere più pulito il tutto e rendere più semplice in futuro la possibili di apportare modifiche.
+Service= qui ho inserito le chiamate API per i dati degli utenti e dei post.
 Pages= ho inserito le cartelle dei seguenti componenti:
 Home = per il component home, dove ho scelto di mettere la liste degli utenti, con la barra di ricerca e il pulsante per andare a creare un nuovo utente.
 Postpage = per i vari componenti per i post, uno per la pagina con tutti i post, uno per la pagina del singolo post, e il component per creare un post nuovo.
