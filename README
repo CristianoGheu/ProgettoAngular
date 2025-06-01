@@ -33,8 +33,6 @@ ottimizzando il sito anche per la la visualizzazione su mobile.
 Per il testing ho utilizzato Karma e i test sono scritti con il framework di testing Jasmine.
 Per far partire il test si può utilizzare nel terminale del progetto il comando ng test.
 
-Link applicazione = 
-
 Per provare e testare l’applicazione potete scaricare il  zip ed estrarlo, 
 una volta aperto il progetto si deve navigare della directory e installare le dipendenze con npm install.
 Una volta installato le dipendenze di può avviare il server con il comando ng serve.
