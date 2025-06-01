@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-create-new-user',
   templateUrl: './create-new-user.component.html',
-  styleUrls: ['./create-new-user.component.css']
+  styleUrls: ['./create-new-user.component.css', '../../../style/style.css']
 })
 export class CreateNewUserComponent implements OnInit{
 

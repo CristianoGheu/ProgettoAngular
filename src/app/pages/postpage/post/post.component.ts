@@ -7,7 +7,7 @@ import { Post, User, Comment} from '../../../model';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css', '../../../style/style.css',]
 })
 export class PostComponent implements OnInit{
   id_post = Number(this.route.snapshot.paramMap.get("id"));

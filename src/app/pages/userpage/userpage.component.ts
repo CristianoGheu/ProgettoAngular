@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-userpage',
   templateUrl: './userpage.component.html',
-  styleUrls: ['./userpage.component.css']
+  styleUrls: ['./userpage.component.css', '../../style/style.css'],
 })
 export class UserpageComponent implements OnInit{
 

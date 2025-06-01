@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-create-new-post',
   templateUrl: './create-new-post.component.html',
-  styleUrls: ['./create-new-post.component.css']
+  styleUrls: ['./create-new-post.component.css', '../../../style/style.css',]
 })
 export class CreateNewPostComponent implements OnInit{
 

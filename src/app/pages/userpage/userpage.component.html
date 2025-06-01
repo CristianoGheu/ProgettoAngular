@@ -1,4 +1,91 @@
 <app-header></app-header>
+<div class="container">
+    <div class="detail-user" *ngIf="selectedUser && !openDelete && !openEdit">
+        <h1>{{ selectedUser.name }}</h1>
+        <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+        <p><strong>Gender:</strong> {{ selectedUser.gender | titlecase }}</p>
+        <p><strong>Status:</strong> {{ selectedUser.status | titlecase }}</p>
+        
+        <div class="buttonsUser">
+            <button mat-button class="delete-btn" (click)="openDelete = true">Delete User</button>
+            <button mat-button (click)="userEditClick()">Edit Profile</button>
+        </div>
+    </div>
+
+    <div class="pop-up-delete" *ngIf="openDelete">
+        <h1>Delete User Account</h1>
+        <p style="margin: 20px 0; color: #64748b;">Are you sure you want to permanently delete this user? This action cannot be undone.</p>
+        
+        <div class="buttonsDelete">
+            <button mat-button class="delete-btn" (click)="deleteUser()">Yes, Delete</button>
+            <button mat-button class="secondary-btn" (click)="openDelete = false">Cancel</button>
+        </div>
+    </div>
+
+    <div *ngIf="openEdit">
+        <mat-card class="edit-card">
+            <mat-card-content>
+                <h1>Edit Profile</h1>
+                <form class="form" action="" #editUserForm="ngForm" (ngSubmit)="editUser()">
+                        <label class="label">Name</label>
+                        <input class="form-content" matInput type="text" name="name" id="name" #name="ngModel" 
+                               placeholder="Enter full name" [(ngModel)]="userEdit.name" required>
+                    
+                        <label class="label">Email</label>
+                        <input class="form-content" matInput type="email" name="email" id="email" #email="ngModel" 
+                               placeholder="Enter email address"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9-.]+\.[a-z]{2,}" 
+                               [(ngModel)]="userEdit.email" required />
+                    
+                        <label class="label">Gender</label>
+                        <mat-select class="form-content" [(ngModel)]="selectedGenderValue" name="gender" id="gender" 
+                                   [(ngModel)]="userEdit.gender" required>
+                            <mat-option value="male">Male</mat-option>
+                            <mat-option value="female">Female</mat-option>
+                        </mat-select>
+                    
+                        <label class="label">Status</label>
+                        <mat-select class="form-content" name="status" id="status" [(ngModel)]="selectedStatusValue" 
+                                   [(ngModel)]="userEdit.status" required>
+                            <mat-option value="active">Active</mat-option>
+                            <mat-option value="inactive">Inactive</mat-option>
+                        </mat-select>
+                    
+                    <mat-card-actions style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                        <button mat-button type="submit" 
+                                [disabled]="!editUserForm.touched || !editUserForm.form.valid">
+                            Save Changes
+                        </button>
+                        <button mat-button type="button" class="secondary-btn" (click)="goBack()">
+                            Cancel
+                        </button>
+                    </mat-card-actions>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="!openDelete && !openEdit && selectedUser">
+        <div class="see-post">
+            📝 User Posts
+        </div>
+        
+        <div class="post-container" *ngFor="let post of posts">
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.body }}</p>
+            <span class="comment" routerLink="/post/{{post.id}}">
+                View Comments
+            </span>    
+        </div>
+        
+        <h2 *ngIf="posts.length == 0">
+            No posts published yet
+        </h2>
+    </div>
+</div>
+<app-footer></app-footer>
+
+<!-- <app-header></app-header>
 <div class="user-container">
     <div class="detail-user" *ngIf="selectedUser && !openDelete && !openEdit">
         <h1>User {{ selectedUser.id }} detail</h1>
@@ -72,3 +159,4 @@
     </div>
 
 </div>
+<app-footer></app-footer> -->

@@ -8,7 +8,7 @@ import { User } from '../../model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css', '../../style/style.css'],
 })
 export class HomeComponent implements OnInit, AfterViewInit{
 

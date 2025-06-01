@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="user-container">
+<div class="container">
 <div class="search-bar">
    <input matInput #searchBox type="text" id="search" placeholder="Search User"
    (input)="getUser('1', pageSize, searchBox.value)"/>
@@ -7,12 +7,13 @@
     <mat-icon>person_add</mat-icon>
    </button>
 </div>
+<div class="users-grid" *ngIf="users.length > 0">
 <div class="user-card" *ngFor="let user of users" routerLink="/userpage/{{user.id}}">
 <mat-card class="card">
    <mat-card-header>
-     <div mat-card-avatar style="display: flex; justify-content: center;">
-       <img src="./assets/icon-male.png" alt="" *ngIf="user.gender === 'male'">
-       <img src="./assets/icon-female.png" alt="" *ngIf="user.gender === 'female'">
+     <div mat-card-avatar>
+       <img src="./assets/icon-male.png" alt="Male user" *ngIf="user.gender === 'male'">
+       <img src="./assets/icon-female.png" alt="Female user" *ngIf="user.gender === 'female'">
      </div>
      <mat-card-title >
        {{user.name}}
@@ -23,14 +24,16 @@
    </mat-card-header>
  </mat-card>
 </div>
+</div>
 
  <h1 *ngIf="users.length == 0" class="no-user">
- There is no other users
+  No users found in our community yet
  </h1>
 
 
-<div>
+<div class="pagination-container">
  <mat-paginator [length]="pageTotal" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
  aria-label="Select page" style="background-color: transparent;"></mat-paginator>
 </div>
 </div>
+<app-footer></app-footer>

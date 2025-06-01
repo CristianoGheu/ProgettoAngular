@@ -7,7 +7,7 @@ import { tap } from 'rxjs';
 @Component({
   selector: 'app-postpage',
   templateUrl: './postpage.component.html',
-  styleUrls: ['./postpage.component.css']
+  styleUrls: ['./postpage.component.css', '../../style/style.css'],
 })
 export class PostpageComponent implements OnInit{
   

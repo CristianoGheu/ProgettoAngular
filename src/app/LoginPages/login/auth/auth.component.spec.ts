@@ -13,6 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 describe('AuthComponent', () => {
@@ -33,6 +35,7 @@ describe('AuthComponent', () => {
         MatCardModule,
         HttpClientTestingModule,
         FormsModule,
+        MatSelectModule,
         BrowserAnimationsModule,
         MatInputModule,
         ReactiveFormsModule,
@@ -42,8 +45,8 @@ describe('AuthComponent', () => {
             component: HomeComponent,
           },
         ]),
-        FormsModule,
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, MatSnackBar],
     })
     .compileComponents();
     

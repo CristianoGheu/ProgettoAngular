@@ -30,6 +30,7 @@ import { CreateNewPostComponent } from './pages/postpage/create-new-post/create-
 import { CreateNewUserComponent } from './pages/userpage/create-new-user/create-new-user.component';
 import { AuthComponent } from './LoginPages/login/auth/auth.component';
 import { PostComponent } from './pages/postpage/post/post.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -46,6 +47,7 @@ import { PostComponent } from './pages/postpage/post/post.component';
     CreateNewUserComponent,
     AuthComponent,
     PostComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
